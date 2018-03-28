@@ -44,12 +44,16 @@
 
 COMMIT
 
+{% if ip6tables_nat_rules is defined  and ip6tables_nat_rules|length > 0  %}
 *nat
-:PREROUTING {{ ip6tables_nat_prerouting_policy|upper }} [0:0]
+:PREROUTING {{ ip6tables_nat_prerouting_policy|upper }} [4482687:409962457]
 {%- if ansible_distribution|lower != 'centos' %}
-:INPUT {{ ip6tables_nat_input_policy|upper }} [0:0]
+:INPUT {{ ip6tables_nat_input_policy|upper }} [25114:2381270]
 {%- endif %}
-:OUTPUT {{ ip6tables_nat_output_policy|upper }} [0:0]
-:POSTROUTING {{ ip6tables_nat_postrouting_policy|upper }} [0:0]
+:OUTPUT {{ ip6tables_nat_output_policy|upper }} [25986:1656681]
+:POSTROUTING {{ ip6tables_nat_postrouting_policy|upper }} [2906464:297594330]
+{%- endif %}
 
+{% if ip6tables_nat_rules is defined  and ip6tables_nat_rules|length > 0  %}
 COMMIT
+{%- endif %}
