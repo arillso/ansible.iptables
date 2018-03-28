@@ -31,7 +31,7 @@
 {%- endif %}
 {%- endfor %}
 
--A OUTPUT -p icmp --icmp-type redirect -j DROP
+# -A OUTPUT -p icmp --icmp-type redirect -j DROP
 {%- for rule in ip6tables_filter_rules -%}
 {% if rule.chain|lower == "output" -%}
 {% if rule.protocol is defined and rule.protocol|lower == "icmp" %}
