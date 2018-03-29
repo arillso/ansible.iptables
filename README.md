@@ -97,6 +97,11 @@ Install and configure iptables with a port forward rule for HTTP
 
 ## Changelog
 
+### 2.4
+
+* add default value for ipv6
+* fix problem with ipv6
+
 ### 2.3
 
 * add support for ipv6
